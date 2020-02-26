@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <base href="/" />
+    <link rel="css" href="style.css">
+  </head>
+  <body>
+    <!-- 
+        Common component block
+     -->
+
+    <script type="module">
+        import "https://unpkg.com/router-slot?module";
+
+        customElements.whenDefined("router-slot").then(async () => {
+            const routerSlot = document.querySelector("router-slot");
+            await routerSlot.add([
+              {
+                path: "route-1",
+                component: () => {
+                    const someContainer =  document.createElement("div");
+                    someContainer.innerHTML = 'Router 1 components';
+                    return vueElContainer;
+                } 
+              }
+            ]);
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+  </body>
+</html>
